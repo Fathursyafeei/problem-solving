@@ -11,6 +11,9 @@ public class BallMovement : MonoBehaviour
     public float xForce;
     public float yForce;
 
+    float horizontal;
+    float vertical;
+
     void Start()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
@@ -21,7 +24,7 @@ public class BallMovement : MonoBehaviour
         float arahRandom = Random.Range(0, 2);
         if (arahRandom < 1.0f)
         {
-            rigidbody2D.AddForce(new Vector2(-xForce, yForce));
+            rigidbody2D.AddForce(new Vector2(-xForce, -yForce));
         }
         else
         {
@@ -30,10 +33,16 @@ public class BallMovement : MonoBehaviour
         Debug.Log(arahRandom);
     }
 
+    private void Update()
+    {
+        horizontal = Input.GetAxisRaw("Horizontal");
+        vertical = Input.GetAxisRaw("Vertical");
+        
+    }
+
     private void FixedUpdate()
     {
         PushBall();
-        //float randomDirection = Random.Range(0, 2);
-        //rigidbody2D.velocity = new Vector2(randomDirection * speed, randomDirection * speed);
+        rigidbody2D.velocity = new Vector2(horizontal * speed, vertical * speed);
     }
 }
