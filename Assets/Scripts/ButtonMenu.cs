@@ -13,7 +13,7 @@ public class ButtonMenu : MonoBehaviour
     {
         btnPlay.onClick.AddListener(() =>
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(10);
         });
         btnQuit.onClick.AddListener(() =>
         {
