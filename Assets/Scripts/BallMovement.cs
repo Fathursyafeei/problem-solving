@@ -54,8 +54,15 @@ public class BallMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
+            transform.localScale += new Vector3(0.1f, 0.1f, 0.1f);
             score.IncrementScore();
             Destroy(collision.gameObject);
+            
+        }
+        if(collision.gameObject.tag == "Border")
+        {
+            transform.localScale += new Vector3(-0.1f, -0.1f, -0.1f);
+            score.DecrementScore();
             
         }
     }

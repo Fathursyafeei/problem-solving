@@ -11,9 +11,17 @@ public class ScoreController : MonoBehaviour
     {
         return score;
     }
+    public float SetCurrentScore()
+    {
+        return score = 0;
+    }
     public void IncrementScore()
     {
         score++;
+    }
+    public void DecrementScore()
+    {
+        score -= 2  ;
     }
     public int Score
     {

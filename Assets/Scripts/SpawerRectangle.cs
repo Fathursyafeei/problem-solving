@@ -19,8 +19,8 @@ public class SpawerRectangle : MonoBehaviour
 
     void Spawn()
     {
-        int randJlhRectangle = Random.Range(6, 12);
-        for(int i = 0; i < 10 ; i++)
+        int randJlhRectangle = Random.Range(25, 50);
+        for(int i = 0; i < randJlhRectangle ; i++)
         { 
             float spawnX = Random.Range(xMin, xMax);
             float spawnY = Random.Range(yMin, yMax);
@@ -43,7 +43,7 @@ public class SpawerRectangle : MonoBehaviour
             Instantiate(enemy, spawnPosition, Quaternion.identity);
         }
         
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(2);
             StartCoroutine(SpawnSquare());
 
     }
