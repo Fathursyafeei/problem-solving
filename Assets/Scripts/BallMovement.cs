@@ -20,6 +20,7 @@ public class BallMovement : MonoBehaviour
     void Start()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
+
     }
 
     void PushBall()
@@ -41,10 +42,6 @@ public class BallMovement : MonoBehaviour
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
 
-
-       
-
-
     }
 
     private void FixedUpdate()
@@ -59,6 +56,7 @@ public class BallMovement : MonoBehaviour
         {
             score.IncrementScore();
             Destroy(collision.gameObject);
+            
         }
     }
 
