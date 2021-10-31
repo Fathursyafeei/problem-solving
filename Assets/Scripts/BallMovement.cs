@@ -13,12 +13,13 @@ public class BallMovement : MonoBehaviour
     float horizontal;
     float vertical;
 
-    
+    public ScoreController score;
+
+
 
     void Start()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
-        
     }
 
     void PushBall()
@@ -41,7 +42,7 @@ public class BallMovement : MonoBehaviour
         vertical = Input.GetAxisRaw("Vertical");
 
 
-        
+       
 
 
     }
@@ -51,4 +52,14 @@ public class BallMovement : MonoBehaviour
         PushBall();
         rigidbody2D.velocity = new Vector2(horizontal * speed, vertical * speed);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            score.IncrementScore();
+            Destroy(collision.gameObject);
+        }
+    }
+
 }

@@ -6,11 +6,13 @@ public class SpawerRectangle : MonoBehaviour
 {
     public GameObject enemy;
     public float xMin, xMax, yMin, yMax;
+    
 
     // Start is called before the first frame update
     void Start()
     {
         Spawn();
+        
     }
 
     // Update is called once per frame
@@ -32,4 +34,5 @@ public class SpawerRectangle : MonoBehaviour
         }
     }
 
+    
 }
